@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
 import style from './Header.module.css'
+import LogoImg from "../../assets/images/Logo.png";
 
 class Header extends Component {
 
@@ -8,49 +9,42 @@ class Header extends Component {
       <header className={style.head}>
         <nav className={style.head__nav}>
         <ul className={style.head__list}>
-          <button className={style['head__item, burger__button']}>
-            <a href="/" className={style.head__link}>
-              <svg className="whitepeper-svg">
-                <use href="../img/header.svg#menu"></use>
-              </svg>
-            </a>
-          </button>
-          <li className="head__item">
-            <a href="./index.html" className="head__link-logo">
-              <img className="head__logo-img" src="../img/2-layers.png" alt="" />
+          <li className={style.head__item}>
+            <a href="/" className={style.head__link_logo}>
+              <img src={LogoImg} alt="Logo" />
             </a>
           </li>
         </ul>
-        <a className="head__search" href="#">
-          <svg className="search-svg">
-            <use href="../img/symbol-defs.svg#icon-search"></use>
-          </svg>
-          <form className="headerSearch">
-              <input className="headerSearch_iteam_btn_submit" type="submit" value=" " />
+        <a className={style.head__search} href="/">
+          {/* <svg className={style.search-svg}> */}
+            {/* <use href="../img/symbol-defs.svg#icon-search"></use> */}
+          {/* </svg> */}
+          <form className={style.headerSearch}>
+              <input className={style.headerSearch_iteam_btn_submit} type="submit" value=" " />
               <input
                 name="film"
-                className="headerSearch_iteam_btn_search"
+                className={style.headerSearch_iteam_btn_search}
                 type="text"
                 placeholder="Search"
                 autocomplete="off"
               />
             </form>
-          <div className="lightbox">
-            <div className="lightbox_iteam">
-              <p className="lightbox_iteam_text">Mooogle</p>
+          <div className={style.lightbox}>
+            <div className={style.lightbox_iteam}>
+              <p className={style.lightbox_iteam_text}>Mooogle</p>
             </div>
-            <form className="lightbox_iteam_btn">
-              <input className="lightbox_iteam_btn_submit" type="submit" value=" " />
+            <form className={style.lightbox_iteam_btn}>
+              <input className={style.lightbox_iteam_btn_submit} type="submit" value=" " />
               <input
                 name="film"
-                className="lightbox_iteam_btn_search"
+                className={style.lightbox_iteam_btn_search}
                 type="text"
                 placeholder="Search"
                 autocomplete="off"
               />
             </form>
           </div>
-          <div className="lightbox_shadow"></div>
+          <div className={style.lightbox_shadow}></div>
         </a>
       </nav>
     </header>
