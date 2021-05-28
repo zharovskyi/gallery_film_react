@@ -16,9 +16,6 @@ class Header extends Component {
           </li>
         </ul>
         <a className={style.head__search} href="/">
-          {/* <svg className={style.search-svg}> */}
-            {/* <use href="../img/symbol-defs.svg#icon-search"></use> */}
-          {/* </svg> */}
           <form className={style.headerSearch}>
               <input className={style.headerSearch_iteam_btn_submit} type="submit" value=" " />
               <input
