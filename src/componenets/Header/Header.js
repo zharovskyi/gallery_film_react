@@ -23,7 +23,6 @@ class Header extends Component {
                   className={style.headerSearch_iteam_btn_search}
                   type="text"
                   placeholder="Search"
-                  autocomplete="off"
                 />
               </form>
             <div className={style.lightbox}>
