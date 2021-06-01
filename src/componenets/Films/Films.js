@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import axios from 'axios';
-
+import FilmItem from '../FilmItem/FilmItem';
 
 class Films extends Component {
   state = {
@@ -24,10 +24,16 @@ class Films extends Component {
     const { movie } = this.state;
     return (
       <>
-      <ul>
-        Hello
-        {/* { this.state.movie.map(movie => <li>{movie.name}</li>)} */}
-      </ul>
+        {/* hello {movie.length} */}
+        <ul className="gallery">
+        {movie.map((item) => (
+          <FilmItem 
+            name={item.name} 
+            path={item.backdrop_path}
+            />
+        ))}
+        </ul>
+        {/* <FilmItem /> */}
       </>
     );
   }
