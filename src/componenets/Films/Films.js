@@ -1,33 +1,49 @@
 import React,{ Component } from 'react';
 import axios from 'axios';
+import FilmItem from './FilmItem/FilmItem';
+import style from './Films.module.css';
 
-
+const StartURL = 'https://api.themoviedb.org/3/';
+const KEY = '/popular?api_key=667e6c0579f71e858d539ca597385526&language=en-US&page1';
 class Films extends Component {
   state = {
-    movie: []
+    movie: [],
   }
-  componentDidMount() {
-    axios
-      .get('https://api.themoviedb.org/3/tv/popular?api_key=667e6c0579f71e858d539ca597385526&language=en-US&page1')
-      .then(response => {
-        this.setState({
-          movie: response.data.results,
-        });  
-        console.log(this.state);
-      })
-      .catch(error => {
-        console.log(error);
-      });
 
+  componentDidMount() {
+    const queryParams = this.props.query;
+    if(queryParams){
+      axios
+        .get(StartURL+queryParams+KEY)
+        .then(response => {
+          this.setState({
+            movie: response.data.results,
+          });  
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      }
   }
   render(){
     const { movie } = this.state;
     return (
       <>
-      <ul>
-        Hello
-        {/* { this.state.movie.map(movie => <li>{movie.name}</li>)} */}
-      </ul>
+        <div className = {`${style.container} ${style.fix_bag_height}`}>
+          <ul className={style.gallery}>
+          {movie.map((item) => (
+            <FilmItem 
+              name={item.name} 
+              path={item.backdrop_path}
+              original_title={item.original_title}
+              original_name={item.original_name}
+              release_date={item.release_date}
+              first_air_date={item.first_air_date}
+              vote_average={item.vote_average}
+              />
+          ))}
+          </ul>
+        </div>
       </>
     );
   }
