@@ -2,31 +2,28 @@ import React,{ Component } from 'react';
 import axios from 'axios';
 import FilmItem from './FilmItem/FilmItem';
 import style from './Films.module.css';
-import queryString from 'query-string';
 
-
+const StartURL = 'https://api.themoviedb.org/3/';
+const KEY = '/popular?api_key=667e6c0579f71e858d539ca597385526&language=en-US&page1';
 class Films extends Component {
   state = {
     movie: [],
   }
 
   componentDidMount() {
-    // const queryParams = this.props.query;
-    // console.log(queryParams);
-    // console.log('https://api.themoviedb.org/3/'+{queryParams}+'/popular?api_key=667e6c0579f71e858d539ca597385526&language=en-US&page1')
-    // if(queryParams){
+    const queryParams = this.props.query;
+    if(queryParams){
       axios
-        .get('https://api.themoviedb.org/3/movie/popular?api_key=667e6c0579f71e858d539ca597385526&language=en-US&page1')
+        .get(StartURL+queryParams+KEY)
         .then(response => {
           this.setState({
             movie: response.data.results,
           });  
-          console.log(this.state);
         })
         .catch(error => {
           console.log(error);
         });
-      // }
+      }
   }
   render(){
     const { movie } = this.state;
@@ -39,7 +36,9 @@ class Films extends Component {
               name={item.name} 
               path={item.backdrop_path}
               original_title={item.original_title}
+              original_name={item.original_name}
               release_date={item.release_date}
+              first_air_date={item.first_air_date}
               vote_average={item.vote_average}
               />
           ))}

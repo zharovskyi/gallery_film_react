@@ -2,7 +2,7 @@ import React from 'react';
 import style from './FilmItem.module.css';
 import sprite from '../../../assets/images/sprite.svg';
 
-const FilmItem = ({ path, original_title, release_date, vote_average}) => (
+const FilmItem = ({ path, original_title, original_name, release_date, first_air_date, vote_average}) => (
   <>
     <li className={style.movie} data-id="{{id}}">
       {/* <a href=""> */}
@@ -15,7 +15,8 @@ const FilmItem = ({ path, original_title, release_date, vote_average}) => (
 
       {/* </a> */}
       <p className={style.movie_title}>
-        {original_title} ( {release_date} )
+        {original_title && original_title} {release_date  && '( ' + release_date + ' )' }
+        {original_name && original_name} { first_air_date && '( ' + first_air_date + ' )' }
       </p>
       <svg className={style.svg_bell}>
         <use className={style.subscription_Bell} href={sprite + "#bell"}></use>
