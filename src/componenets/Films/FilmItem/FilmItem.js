@@ -1,7 +1,8 @@
 import React from 'react';
-import style from './FilmItem.module.css'
+import style from './FilmItem.module.css';
+import sprite from '../../../assets/images/sprite.svg';
 
-const FilmItem = ({name,path}) => (
+const FilmItem = ({ path, original_title, release_date, vote_average}) => (
   <>
     <li className={style.movie} data-id="{{id}}">
       {/* <a href=""> */}
@@ -14,28 +15,22 @@ const FilmItem = ({name,path}) => (
 
       {/* </a> */}
       <p className={style.movie_title}>
-        {name}
-        {/* {{#if title}} */}
-        {/* {{title }} ({{release_date}}) */}
-        {/* {{else}} */}
-        {/* {{name }} ({{first_air_date}}) */}
-        {/* {{/if}} */}
+        {original_title} ( {release_date} )
       </p>
       <svg className={style.svg_bell}>
-        {/* <use className={style.subscription_Bell} href="../img/sprite.svg#bell"></use> */}
+        <use className={style.subscription_Bell} href={sprite + "#bell"}></use>
       </svg>
       {/* {{#if favorites}} */}
       {/* <svg className={style.svg-star svg-green}> */}
         {/* {{else}} */}
-        {/* <svg className={style.svg-star}> */}
+        <svg className={style.svg_star}>
           {/* {{/if}} */}
-          {/* <use className={style.use} data-id="{{id}}" href="../img/sprite.svg#star-full"></use> */}
-        {/* </svg> */}
+          <use className={style.use} data-id="{{id}}" href={sprite + "#star-full"}></use>
+        </svg>
         <p className={style.average}>
-          {/* {{vote_average}} */}
+          {vote_average}
         </p>
     </li>
- 
   </>
 )
 export default FilmItem;

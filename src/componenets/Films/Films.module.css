@@ -11,12 +11,14 @@ body {
 }
 
 .gallery {
-  width: 360px;
-  padding: 0px;
-  padding-top: 30px;
+  width: 1000px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
   height: auto;
   margin: 0 auto;
-  list-style: none;
+  padding-top: 50px;
+}
+.fix_bag_height {
+  min-height: 70.5vh;
 }
