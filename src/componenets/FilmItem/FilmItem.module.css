@@ -1,7 +1,7 @@
 .movie {
   position: relative;
   margin: 0;
-  padding: 0 6px;
+  padding: 0 5px;
   margin-bottom: 10px;
 }
 .movie_logo {
@@ -10,7 +10,7 @@
 }
 .movie::before {
   content: '';
-  /* background-image: url('../img/shadow.png'); */
+  background-image: url('../../assets/images/shadow.png');
   opacity: 0.9;
   display: block;
   width: 347px;
@@ -83,12 +83,13 @@
 .average {
   color: #fff;
   position: absolute;
-  left: 6px;
-  top: -3px;
-  padding-left: 10px;
+  left: 20;
+  top: 3px;
   background-color: #77c1bb;
+  padding: 10px;
+  line-height: 1;
   width: 35px;
-  height: 20px;
+  text-align: center;
 }
 .burger__button {
   border-style: none;
@@ -224,7 +225,7 @@
   }
   .movie::before {
     content: '';
-    /* background-image: url('../img/shadow.png'); */
+    background-image: url('../../assets/images/shadow.png');
     display: block;
     background-size: cover;
     width: 482px;
@@ -300,3 +301,27 @@
     transform: translateY(-100px);
   }
 }
+.btn {
+  border: none;
+  /* background: transparent; */
+  position: absolute;
+  z-index: 0;
+  right: 19%;
+  top: 7%;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+/* .svg_star {
+  pointer-events:inherit;
+} */
+/* .btn::after{
+  content: '';
+  background: url('../../assets/images/sprite.svg#star-full');;
+  width: 30px;
+  height: 30px;
+  display: inline;
+  background-color: red;
+  position: absolute;
+  z-index: 5;
+} */

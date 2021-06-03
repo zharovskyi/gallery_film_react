@@ -11,9 +11,10 @@ body {
 }
 
 .gallery {
-  width: 1000px;
+  max-width: 1000px;
   display: flex;
   justify-content: space-evenly;
+  flex-direction: row;
   flex-flow: row wrap;
   height: auto;
   margin: 0 auto;
@@ -23,3 +24,9 @@ body {
 .fix_bag_height {
   min-height: 70.5vh;
 }
+@media (max-width: 767px) {
+  .gallery {
+    width: auto;
+    flex-direction: column;
+  }
+ }
