@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import axios from 'axios';
-import FilmItem from './FilmItem/FilmItem';
+import FilmItem from '../FilmItem/FilmItem';
 import style from './Films.module.css';
 
 const StartURL = 'https://api.themoviedb.org/3/';
@@ -25,14 +25,20 @@ class Films extends Component {
         });
       }
   }
+
+  handleClick = (e) => {
+    console.log(e.target);
+    localStorage.setItem('id', e.target.dataset.id);
+  }
   render(){
     const { movie } = this.state;
     return (
       <>
         <div className = {`${style.container} ${style.fix_bag_height}`}>
-          <ul className={style.gallery}>
+          <ul className={style.gallery} onClick={this.handleClick}>
           {movie.map((item) => (
             <FilmItem 
+              id={item.id}
               name={item.name} 
               path={item.backdrop_path}
               original_title={item.original_title}

@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import style from './Categories.module.css';
-import {BrowserRouter as Router, NavLink, Route} from "react-router-dom";
+import {BrowserRouter as Router, NavLink, Route,Redirect} from "react-router-dom";
 import Films from '../Films/Films';
 import Favourite from '../Favourite/Favourite';
 
@@ -19,9 +19,10 @@ class Categories extends Component {
         <nav className={style.nav__film}>
           <Nav />
         </nav>
-        <Route exact path="/movie" render={props => <Films {...props} query="movie" />} />
-        <Route path="/tv" render={props => <Films {...props} query="tv" />} />
-        <Route path="/favorite" component = {Favourite} />
+          <Route exact path="/movie" render={props => <Films {...props} query="movie" />} />
+          <Route path="/tv" render={props => <Films {...props} query="tv" />} />
+          <Route path="/favorite" component = {Favourite} />
+          <Redirect to="/movie" />
       </>
     );
   }
