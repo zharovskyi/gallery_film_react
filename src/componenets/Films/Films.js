@@ -8,6 +8,7 @@ const KEY = '/popular?api_key=667e6c0579f71e858d539ca597385526&language=en-US&pa
 class Films extends Component {
   state = {
     movie: [],
+    id: [],
   }
 
   componentDidMount() {
@@ -27,8 +28,19 @@ class Films extends Component {
   }
 
   handleClick = (e) => {
-    console.log(e.target);
-    localStorage.setItem('id', e.target.dataset.id);
+    let target = e.target.tagName;
+    // console.log(e.target.tagName)
+    if (target.toLowerCase() === "use" && target !== undefined) {
+      // console.log(e.target);
+      // this.setState({
+      //   id: e.target.dataset.id,
+      // });
+      // this.setState([
+      //   ...id, e.target.dataset.id,
+      // ]
+      // );
+      localStorage.setItem('id', e.target.dataset.id);
+     }
   }
   render(){
     const { movie } = this.state;
