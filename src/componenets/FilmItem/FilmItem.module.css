@@ -315,7 +315,7 @@
 /* .svg_star {
   pointer-events:inherit;
 } */
-/* .btn::after{
+.btn::after{
   content: '';
   background: url('../../assets/images/sprite.svg#star-full');;
   width: 30px;
@@ -324,4 +324,4 @@
   background-color: red;
   position: absolute;
   z-index: 5;
-} */
+}

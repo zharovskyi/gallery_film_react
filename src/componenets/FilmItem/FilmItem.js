@@ -2,9 +2,9 @@ import React from 'react';
 import style from './FilmItem.module.css';
 import sprite from '../../assets/images/sprite.svg';
 
-const FilmItem = ({ id, path, original_title, original_name, release_date, first_air_date, vote_average}) => (
+const FilmItem = ({ id, path, original_title, original_name, release_date, first_air_date, vote_average,handleClick}) => (
   <>
-    <li className={style.movie} data-id={id}>
+    <li className={style.movie} key={id}>
       {/* <a href=""> */}
         {/* {{#if backdrop_path}} */}
         {/* {name} */}
@@ -25,8 +25,8 @@ const FilmItem = ({ id, path, original_title, original_name, release_date, first
       {/* <svg className={style.svg-star svg-green}> */}
         {/* {{else}} */}
         {/* <button class={style.btn} data-id={id} > */}
-          <svg className={style.svg_star} data-id={id}>
-            <use className={style.use} href={sprite + "#star-full"}></use>
+          <svg className={style.svg_star}>
+            <use className={style.use} data-id={id} href={sprite + "#star-full"} onClick={handleClick}></use>
           </svg>
         {/* </button> */}
         <p className={style.average}>

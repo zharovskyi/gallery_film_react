@@ -8,6 +8,7 @@ const KEY = '/popular?api_key=667e6c0579f71e858d539ca597385526&language=en-US&pa
 class Films extends Component {
   state = {
     movie: [],
+    idFilms: [],
   }
 
   componentDidMount() {
@@ -27,11 +28,16 @@ class Films extends Component {
   }
 
   handleClick = (e) => {
-    console.log(e.target);
-    localStorage.setItem('id', e.target.dataset.id);
+    let target = e.target.tagName;
+    if (target.toLowerCase() === "use" && target !== undefined) {
+      this.setState(({idFilms}) => ({
+        idFilms: [...idFilms, e.target.dataset.id],
+      }));
+      localStorage.setItem('id', JSON.stringify(this.state.idFilms));
+    }
   }
   render(){
-    const { movie } = this.state;
+    const { movie, idFilms } = this.state;
     return (
       <>
         <div className = {`${style.container} ${style.fix_bag_height}`}>
@@ -46,6 +52,7 @@ class Films extends Component {
               release_date={item.release_date}
               first_air_date={item.first_air_date}
               vote_average={item.vote_average}
+              
               />
           ))}
           </ul>
