@@ -8,7 +8,7 @@ const KEY = '/popular?api_key=667e6c0579f71e858d539ca597385526&language=en-US&pa
 class Films extends Component {
   state = {
     movie: [],
-    id: [],
+    idFilms: [],
   }
 
   componentDidMount() {
@@ -29,16 +29,15 @@ class Films extends Component {
 
   handleClick = (e) => {
     let target = e.target.tagName;
-    // console.log(e.target.tagName)
     if (target.toLowerCase() === "use" && target !== undefined) {
-      this.setState(({id}) => ({
-        id: [...id, e.target.dataset.id],
-      }))
-      localStorage.setItem('id', JSON.stringify(this.state.id));
-     }
+      this.setState(({idFilms}) => ({
+        idFilms: [...idFilms, e.target.dataset.id],
+      }));
+      localStorage.setItem('id', JSON.stringify(this.state.idFilms));
+    }
   }
   render(){
-    const { movie, id } = this.state;
+    const { movie, idFilms } = this.state;
     return (
       <>
         <div className = {`${style.container} ${style.fix_bag_height}`}>
