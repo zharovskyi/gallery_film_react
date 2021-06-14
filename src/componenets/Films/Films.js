@@ -31,19 +31,14 @@ class Films extends Component {
     let target = e.target.tagName;
     // console.log(e.target.tagName)
     if (target.toLowerCase() === "use" && target !== undefined) {
-      // console.log(e.target);
-      // this.setState({
-      //   id: e.target.dataset.id,
-      // });
-      // this.setState([
-      //   ...id, e.target.dataset.id,
-      // ]
-      // );
-      localStorage.setItem('id', e.target.dataset.id);
+      this.setState(({id}) => ({
+        id: [...id, e.target.dataset.id],
+      }))
+      localStorage.setItem('id', JSON.stringify(this.state.id));
      }
   }
   render(){
-    const { movie } = this.state;
+    const { movie, id } = this.state;
     return (
       <>
         <div className = {`${style.container} ${style.fix_bag_height}`}>
@@ -58,6 +53,7 @@ class Films extends Component {
               release_date={item.release_date}
               first_air_date={item.first_air_date}
               vote_average={item.vote_average}
+              
               />
           ))}
           </ul>
