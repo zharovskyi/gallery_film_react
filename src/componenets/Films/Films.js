@@ -29,19 +29,20 @@ class Films extends Component {
 
   handleClick = (e) => {
     let target = e.target.tagName;
-    if (target.toLowerCase() === "use" && target !== undefined) {
+    console.log(e.target.dataset.id);
+
       this.setState(({idFilms}) => ({
         idFilms: [...idFilms, e.target.dataset.id],
       }));
+      
       localStorage.setItem('id', JSON.stringify(this.state.idFilms));
-    }
   }
   render(){
     const { movie, idFilms } = this.state;
     return (
       <>
         <div className = {`${style.container} ${style.fix_bag_height}`}>
-          <ul className={style.gallery} onClick={this.handleClick}>
+          <ul className={style.gallery}>
           {movie.map((item) => (
             <FilmItem 
               id={item.id}
@@ -52,7 +53,7 @@ class Films extends Component {
               release_date={item.release_date}
               first_air_date={item.first_air_date}
               vote_average={item.vote_average}
-              
+              handleClick={this.handleClick}
               />
           ))}
           </ul>
