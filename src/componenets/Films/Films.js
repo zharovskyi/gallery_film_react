@@ -9,6 +9,7 @@ class Films extends Component {
   state = {
     movie: [],
     idFilms: [],
+    // favourite: [],
   }
 
   componentDidMount() {
@@ -29,6 +30,7 @@ class Films extends Component {
 
   handleClick = (e) => {
     let target = e.target.tagName;
+    console.log(e.target);
     if (target.toLowerCase() === "use" && target !== undefined) {
       this.setState(({idFilms}) => ({
         idFilms: [...idFilms, e.target.dataset.id],
@@ -41,7 +43,10 @@ class Films extends Component {
     return (
       <>
         <div className = {`${style.container} ${style.fix_bag_height}`}>
-          <ul className={style.gallery} onClick={this.handleClick}>
+          <ul 
+          className={style.gallery} 
+          onClick={this.handleClick}
+          >
           {movie.map((item) => (
             <FilmItem 
               id={item.id}
@@ -52,7 +57,7 @@ class Films extends Component {
               release_date={item.release_date}
               first_air_date={item.first_air_date}
               vote_average={item.vote_average}
-              
+              handleClick={this.handleClick}
               />
           ))}
           </ul>
