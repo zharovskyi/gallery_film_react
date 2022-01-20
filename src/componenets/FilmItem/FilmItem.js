@@ -2,18 +2,21 @@ import React from 'react';
 import style from './FilmItem.module.css';
 import sprite from '../../assets/images/sprite.svg';
 
-const FilmItem = ({ id, path, original_title, original_name, release_date, first_air_date, vote_average, handleClick}) => (
+const FilmItem = ({ 
+  id, 
+  path, 
+  original_title, 
+  original_name, 
+  release_date, 
+  first_air_date, 
+  vote_average, 
+  handleClick}) => (
   <>
-    <li className={style.movie} key={id}>
-      {/* <a href=""> */}
-        {/* {{#if backdrop_path}} */}
-        {/* {name} */}
-        <img className={style.movie_logo} src={"https://image.tmdb.org/t/p/w500"+path} alt="movie-title" />
-        {/* {{else}} */}
-        {/* <img className={style.movie-logo" src="../img/not-found.png" alt="movie-title" /> */}
-        {/* {{/if}} */}
-
-      {/* </a> */}
+    <li key = {id} className={style.movie}>
+        {path
+          ? <img className={style.movie_logo} src={"https://image.tmdb.org/t/p/w500"+ path} alt="movie-title" />
+          : <img className={style.movie_logo} src="https://image.tmdb.org/t/p/w500/1R68vl3d5s86JsS2NPjl8UoMqIS.jpg" alt="movie-title" />
+        }
       <p className={style.movie_title}>
         {original_title && original_title} {release_date  && '( ' + release_date + ' )' }
         {original_name && original_name} { first_air_date && '( ' + first_air_date + ' )' }
@@ -23,17 +26,15 @@ const FilmItem = ({ id, path, original_title, original_name, release_date, first
           <use className={style.subscription_Bell} href={sprite + "#bell"}></use>
         </svg>
       </div>
-      {/* {{#if favorites}} */}
-      {/* <svg className={style.svg-star svg-green}> */}
-        {/* {{else}} */}
-        {/* <button class={style.btn} data-id={id} > */}
+        <div onClick={handleClick} data-id={id}>
           <svg className={style.svg_star}>
-            <use className={style.use} href={sprite + "#star-full"} 
-            data-id={id}
-            onClick={handleClick}
+            <use 
+              className={style.use} 
+              href={sprite + "#star-full"} 
+              
             ></use>
           </svg>
-        {/* </button> */}
+        </div>
         <p className={style.average}>
           {vote_average}
         </p>

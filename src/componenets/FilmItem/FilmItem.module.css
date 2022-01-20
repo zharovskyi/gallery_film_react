@@ -181,6 +181,7 @@
   }
   .movie {
     margin-bottom: 15px;
+    height: 177px;
   }
   .movie:hover {
     top: -4px;

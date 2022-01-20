@@ -39,11 +39,9 @@
   margin-top: 17px;
   opacity: 0;
 }
-
-.nav__main_is_open::after {
+.activeLink::after {
   opacity: 1;
 }
-
 @media (min-width: 768px) {
   .nav__film {
     margin: 0;

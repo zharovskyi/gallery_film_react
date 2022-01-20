@@ -1,50 +1,50 @@
-import React,{ Component } from 'react';
-import axios from 'axios';
-import FilmItem from '../FilmItem/FilmItem';
+import React from 'react';
+import { useState, useEffect } from 'react';
+import movieAPI from '../../services/film-api';
 import style from './Films.module.css';
+import FilmItem from '../FilmItem/FilmItem';
 
-const StartURL = 'https://api.themoviedb.org/3/';
-const KEY = '/popular?api_key=667e6c0579f71e858d539ca597385526&language=en-US&page1';
-class Films extends Component {
-  state = {
-    movie: [],
-    idFilms: [],
-  }
+export default function Films({query}) {
+  const [movieFilms, setMovie] = useState([]);  
+  const [favoriteMovie, setFavoriteMovie] = useState([]);
 
-  componentDidMount() {
-    const queryParams = this.props.query;
-    if(queryParams){
-      axios
-        .get(StartURL+queryParams+KEY)
-        .then(response => {
-          this.setState({
-            movie: response.data.results,
-          });  
-        })
-        .catch(error => {
-          console.log(error);
-        });
-      }
-  }
-
-  handleClick = (e) => {
-    let target = e.target.tagName;
-    console.log(e.target.dataset.id);
-
-      this.setState(({idFilms}) => ({
-        idFilms: [...idFilms, e.target.dataset.id],
-      }));
+  useEffect(() => {
+    if(query === 'favorite') {
+      const movieLocalStorage = JSON.parse(window.localStorage.getItem('idFilms'));
+      console.log('movieLocalStorage',movieLocalStorage);
       
-      localStorage.setItem('id', JSON.stringify(this.state.idFilms));
+      if(movieLocalStorage) {
+        setMovie([...new Set(movieLocalStorage)]);
+      }
+    }else {
+      movieAPI
+      .fetchMovies(query)
+      .then(movie => {
+        setMovie(movie.results);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
+    
+  }, [query]);
+
+  const handleClick = (e) => {    
+    movieFilms.map((item) => {
+      if(Number(item.id) === Number(e.currentTarget.dataset.id)) {
+        setFavoriteMovie([...favoriteMovie,item]);
+        window.localStorage.setItem('idFilms', JSON.stringify([...new Set(favoriteMovie)]));
+      }
+    });
   }
-  render(){
-    const { movie, idFilms } = this.state;
-    return (
-      <>
-        <div className = {`${style.container} ${style.fix_bag_height}`}>
-          <ul className={style.gallery}>
-          {movie.map((item) => (
+
+  return (
+    <>
+      <div className = {`${style.container} ${style.fix_bag_height}`}>
+        <ul className = {style.gallery}>
+          {movieFilms && movieFilms.map((item) => (
             <FilmItem 
+              key = {item.id}
               id={item.id}
               name={item.name} 
               path={item.backdrop_path}
@@ -53,13 +53,11 @@ class Films extends Component {
               release_date={item.release_date}
               first_air_date={item.first_air_date}
               vote_average={item.vote_average}
-              handleClick={this.handleClick}
-              />
+              handleClick={handleClick}
+            />
           ))}
-          </ul>
-        </div>
-      </>
-    );
-  }
-}
-export default Films;
+        </ul>
+      </div>
+    </>
+  );
+};
