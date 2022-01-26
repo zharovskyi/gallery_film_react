@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/gallery_film_react/build/static/css/main.d1b50e7e.chunk.css",
-    "main.js": "/gallery_film_react/build/static/js/main.270c3588.chunk.js",
-    "main.js.map": "/gallery_film_react/build/static/js/main.270c3588.chunk.js.map",
-    "runtime-main.js": "/gallery_film_react/build/static/js/runtime-main.3c45a70a.js",
-    "runtime-main.js.map": "/gallery_film_react/build/static/js/runtime-main.3c45a70a.js.map",
-    "static/js/2.cb133f73.chunk.js": "/gallery_film_react/build/static/js/2.cb133f73.chunk.js",
-    "static/js/2.cb133f73.chunk.js.map": "/gallery_film_react/build/static/js/2.cb133f73.chunk.js.map",
-    "static/js/3.be677357.chunk.js": "/gallery_film_react/build/static/js/3.be677357.chunk.js",
-    "static/js/3.be677357.chunk.js.map": "/gallery_film_react/build/static/js/3.be677357.chunk.js.map",
+    "main.css": "/gallery_film_react/build/static/css/main.26e9b627.chunk.css",
+    "main.js": "/gallery_film_react/build/static/js/main.8b7d562a.chunk.js",
+    "main.js.map": "/gallery_film_react/build/static/js/main.8b7d562a.chunk.js.map",
+    "runtime-main.js": "/gallery_film_react/build/static/js/runtime-main.b2e5aecc.js",
+    "runtime-main.js.map": "/gallery_film_react/build/static/js/runtime-main.b2e5aecc.js.map",
+    "static/js/2.fd27c4dc.chunk.js": "/gallery_film_react/build/static/js/2.fd27c4dc.chunk.js",
+    "static/js/2.fd27c4dc.chunk.js.map": "/gallery_film_react/build/static/js/2.fd27c4dc.chunk.js.map",
+    "static/js/3.0af56578.chunk.js": "/gallery_film_react/build/static/js/3.0af56578.chunk.js",
+    "static/js/3.0af56578.chunk.js.map": "/gallery_film_react/build/static/js/3.0af56578.chunk.js.map",
     "index.html": "/gallery_film_react/build/index.html",
-    "static/css/main.d1b50e7e.chunk.css.map": "/gallery_film_react/build/static/css/main.d1b50e7e.chunk.css.map",
-    "static/js/2.cb133f73.chunk.js.LICENSE.txt": "/gallery_film_react/build/static/js/2.cb133f73.chunk.js.LICENSE.txt",
+    "static/css/main.26e9b627.chunk.css.map": "/gallery_film_react/build/static/css/main.26e9b627.chunk.css.map",
+    "static/js/2.fd27c4dc.chunk.js.LICENSE.txt": "/gallery_film_react/build/static/js/2.fd27c4dc.chunk.js.LICENSE.txt",
     "static/media/sprite-footer.6bb8aaf1.svg": "/gallery_film_react/build/static/media/sprite-footer.6bb8aaf1.svg",
     "static/media/FilmItem.module.css": "/gallery_film_react/build/static/media/sprite.876b953e.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3c45a70a.js",
-    "static/js/2.cb133f73.chunk.js",
-    "static/css/main.d1b50e7e.chunk.css",
-    "static/js/main.270c3588.chunk.js"
+    "static/js/runtime-main.b2e5aecc.js",
+    "static/js/2.fd27c4dc.chunk.js",
+    "static/css/main.26e9b627.chunk.css",
+    "static/js/main.8b7d562a.chunk.js"
   ]
 }
